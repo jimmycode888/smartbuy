@@ -28,7 +28,7 @@ export const mice=[
       "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m185/gallery/m185-gallery-1-blue-emea.png",
       "source": "https://www.logitech.com/en-hk/shop/p/m185-wireless-mouse",
       "credit": "Logitech official product image",
-      "local": "/images/mouse-m185.png"
+      "local": "./images/mouse-m185.png"
     },
     "fictional": false
   },
@@ -61,7 +61,7 @@ export const mice=[
       "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m240/product-gallery/m240-mouse-top-view-off-white.png",
       "source": "https://www.logitech.com/en-hk/shop/p/m240-silent-bluetooth-mouse",
       "credit": "Logitech official product image",
-      "local": "/images/mouse-m240.png"
+      "local": "./images/mouse-m240.png"
     },
     "fictional": false
   },
@@ -94,7 +94,7 @@ export const mice=[
       "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m330-wireless-silent-mouse/2024-update/gallery/m330-wireless-mouse-top-view-black-gallery-01.png",
       "source": "https://www.logitech.com/en-hk/shop/p/m331-silent-plus-mouse",
       "credit": "Logitech official product image",
-      "local": "/images/mouse-m331.png"
+      "local": "./images/mouse-m331.png"
     },
     "fictional": false
   },
@@ -127,7 +127,7 @@ export const mice=[
       "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/pebble-mouse-2-m350s/2026-refresh/gallery/pebble-mouse-2-m350s-tonal-rose-top-angle-gallery-1.png",
       "source": "https://www.logitech.com/en-hk/shop/p/pebble-2-m350s-wireless-mouse",
       "credit": "Logitech official product image",
-      "local": "/images/mouse-m350s.png"
+      "local": "./images/mouse-m350s.png"
     },
     "fictional": false
   },
@@ -160,7 +160,7 @@ export const mice=[
       "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m650/update-2025/gallery/graphite-medium/m650-graphite-medium-top-angle-gallery-1.png",
       "source": "https://www.logitech.com/en-hk/shop/p/m650-signature-wireless-mouse",
       "credit": "Logitech official product image",
-      "local": "/images/mouse-m650.png"
+      "local": "./images/mouse-m650.png"
     },
     "fictional": false
   },
@@ -193,7 +193,7 @@ export const mice=[
       "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m720/gallery/m720-gallery-1a.png",
       "source": "https://www.logitech.com/en-hk/shop/p/m720-triathlon",
       "credit": "Logitech official product image",
-      "local": "/images/mouse-m720.png"
+      "local": "./images/mouse-m720.png"
     },
     "fictional": false
   },
@@ -226,7 +226,7 @@ export const mice=[
       "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/lift-vertical-ergonomic-mouse/2026-update/gallery/rose/lift-mouse-top-angle-rose-gallery-1.png",
       "source": "https://www.logitech.com/en-hk/shop/p/lift-vertical-ergonomic-mouse",
       "credit": "Logitech official product image",
-      "local": "/images/mouse-lift.png"
+      "local": "./images/mouse-lift.png"
     },
     "fictional": false
   },
@@ -259,7 +259,7 @@ export const mice=[
       "url": "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g305/2025-update/g305-lightspeed-mouse-top-angle-black-gallery-1.png",
       "source": "https://www.logitechg.com/en-hk/shop/p/g304-lightspeed-wireless-gaming-mouse",
       "credit": "Logitech official product image",
-      "local": "/images/mouse-g304.png"
+      "local": "./images/mouse-g304.png"
     },
     "fictional": false
   }
@@ -275,3 +275,4 @@ if(/左手|left.hand/i.test(t))p.hand='left';else if(/右手|right.hand/i.test(t
 if(/必须静音|require silent|must.*silent/i.test(t))p.silent=true;if(/取消静音|remove silent/i.test(t))p.silent=null;if(/偏好静音|prefer silent/i.test(t))p.preferSilent=true;if(/轻便优先|prefer light/i.test(t))p.preferLight=true;const w=t.match(/(?:不超过|max(?:imum)? weight)\s*(\d+(?:\.\d+)?)\s*(?:克|g)/i);if(w)p.maxWeight=+w[1];if(/重量不限|取消重量|no weight limit/i.test(t))p.maxWeight=0;return validateMouse(p);}
 export function mouseViolations(p,s){const r=[];if(p.currency!==s.currency)r.push('币种不匹配（未换算）');if(p.price>s.budget)r.push('超出预算');const bt=p.bluetooth===true&&s.bluetoothAvailable!==false;const usb=p.receiver===true&&s.usbA!==false;if(s.connection==='bluetooth'&&!bt||s.connection==='receiver'&&!usb||(!s.connection||s.connection==='any')&&!bt&&!usb)r.push('设备接口或连接不兼容');if(s.hand&&s.hand!=='any'&&p.hand!=='both'&&p.hand!==s.hand)r.push(p.hand==null?'左右手适用性未知':'左右手要求不符');if(s.silent===true&&p.silent!==true)r.push('静音未确认');if(s.maxWeight&&(p.weight==null||p.weight>s.maxWeight))r.push(p.weight==null?'重量未知':'超出重量限制');return r;}
 export function recommendMouse(s){const question=s.budget==null?'鼠标预算上限是多少港币？':!s.use?'主要用于学习、办公、编程、游戏还是便携？':s.usbA===false&&s.bluetoothAvailable==null?'只有 USB-C 时需确认：电脑支持蓝牙吗？':!s.connection?'希望蓝牙连接、USB接收器，还是连接不限？':null;const eligible=mice.filter(p=>!mouseViolations(p,s).length);eligible.sort((a,b)=>(s.preferSilent?Number(b.silent===true)-Number(a.silent===true):0)||(s.preferLight?(a.weight??Infinity)-(b.weight??Infinity):0)||a.price-b.price);const selected=question?[]:eligible.slice(0,3);const exclusions={};for(const p of mice)for(const r of mouseViolations(p,s))exclusions[r]=(exclusions[r]||0)+1;return{question,products:selected,matchCount:eligible.length,exclusions,explanations:Object.fromEntries(selected.map(p=>[p.id,[`参考价 HKD ${p.price}，预算内余量 HKD ${s.budget-p.price}`,p.bluetooth&&s.connection!=='receiver'&&s.bluetoothAvailable!==false?'可使用蓝牙连接，无需占用USB接口':'使用USB-A接收器，需电脑具备对应接口',s.hand&&s.hand!=='any'?'满足左右手硬条件':'',s.silent?'官网已确认静音点击':''].filter(Boolean)])),contextNote:'未独立测试握持舒适度、延迟或系统版本兼容性。请核对厂商版本要求；游戏用途不等于已验证低延迟。',followups:question?(s.budget==null?['预算200港币','预算400港币']:!s.use?['学习','办公','游戏']:s.usbA===false&&s.bluetoothAvailable==null?['支持蓝牙','不支持蓝牙']:['蓝牙','接收器','连接不限']):['偏好静音','轻便优先','左手使用'],message:question||(eligible.length?`找到 ${eligible.length} 款满足全部硬性条件的商品，展示其中 ${selected.length} 款。`:'目前没有鼠标满足全部硬性条件。请查看排除原因，并选择愿意调整的条件。')};}
+
