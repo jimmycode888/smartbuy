@@ -1,0 +1,1 @@
+{"name":"SmartBuy","image":"mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm","forwardPorts":[8017],"portsAttributes":{"8017":{"label":"SmartBuy","onAutoForward":"openBrowser"}},"postStartCommand":"HOST=0.0.0.0 npm start"}

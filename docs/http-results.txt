@@ -1,0 +1,59 @@
+200
+{
+  "mode": "演示模式（规则解析，未调用 LLM）"
+}
+{
+  "state": {
+    "currency": "HKD",
+    "budget": 500,
+    "excludeInEar": true,
+    "use": "通勤"
+  },
+  "question": null,
+  "products": [
+    {
+      "id": "demo-2",
+      "name": "虚构 Demo 2",
+      "price": 250,
+      "currency": "HKD",
+      "type": "头戴式",
+      "anc": true,
+      "battery": 12,
+      "brand": "Demo",
+      "source": null,
+      "collected": "2026-11-13",
+      "region": "虚构香港演示",
+      "subjective": "未进行真实试听",
+      "fictional": true
+    },
+    {
+      "id": "demo-3",
+      "name": "虚构 Demo 3",
+      "price": 350,
+      "currency": "HKD",
+      "type": "开放式",
+      "anc": false,
+      "battery": 16,
+      "brand": "Demo",
+      "source": null,
+      "collected": "2026-11-13",
+      "region": "虚构香港演示",
+      "subjective": "未进行真实试听",
+      "fictional": true
+    }
+  ],
+  "message": "以下商品满足当前硬性条件；用途仅作背景，资料没有用途性能证据，不能保证游戏延迟、音质或运动表现。",
+  "mode": "演示模式（规则解析，未调用 LLM）"
+}
+{
+  "state": {
+    "currency": "HKD",
+    "budget": 200,
+    "excludeInEar": true,
+    "use": "通勤"
+  },
+  "question": null,
+  "products": [],
+  "message": "没有符合全部硬性条件的商品。可能是预算、佩戴、降噪或续航限制组合冲突；非 HKD 暂不换算。未知参数不能视为满足要求。你愿意调整哪项条件？",
+  "mode": "演示模式（规则解析，未调用 LLM）"
+}
