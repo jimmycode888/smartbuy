@@ -1,5 +1,13 @@
 # SmartBuy — Conversational Tech Advisor
 
+## 当前版本（2026-11-17）
+
+公开功能演示：https://jimmycode888.github.io/smartbuy/ 。GitHub Pages 在浏览器内执行规则筛选，不调用 DeepSeek；刷新清空对话。本地 Node 版本仍支持通过服务端环境变量接入模型，但真实 API 尚未验证。运行 `node build-demo.mjs` 生成 `site/`，将其中内容发布至 gh-pages。
+
+新增：推荐卡片逐项核对硬条件；“太贵了 / 不喜欢这款 / 更重视续航（鼠标为轻便）”反馈；五个课堂案例入口。预算与偏好需确认后才更新，不喜欢某款会提供进一步操作，不自动猜测或放宽需求。案例只预填消息，不自动发送或清空对话。历史卡片按历史需求核对并隐藏反馈按钮。支持中英文；窄屏采用单列卡片。
+
+本次47项回归测试通过，并执行Edge交互及390px视口检查，详见 `docs/ui-checks-2026-11-17.md`、`docs/ui-regression-2026-11-17.txt`。以下各节保留此前版本开发记录；其中“未部署”和早期测试数量不代表当前状态，以本节为准。
+
 CCC8015 本地可交互耳机选购原型。当前资料库为 **10 款耳机 + 8 款鼠标，共18款真实商品**，查询于2026-11-13。商品卡片现使用对应型号的真实商品图片；首页装饰仍为原创示意图。代码已公开；尚未部署常驻在线网站。
 
 ## 启动和使用
@@ -154,6 +162,5 @@ Edge浏览器实际操作与观察见 `docs/browser-checks.md`，截图 `docs/pr
 
 ## GitHub 运行（2026-11-16）
 仓库已按用户授权公开：https://github.com/jimmycode888/smartbuy 。Code → Codespaces → Create codespace on main，启动后打开 Ports 中的 8017（默认私有）。Codespaces 可能消耗账号额度，请在使用后停止。可在 Codespaces Secrets 配置 DEEPSEEK_API_KEY 后重建/重启环境，未配置时为演示模式。GitHub Pages 无法运行本项目 Node 后端。Docker 可用 docker build -t smartbuy . 和 docker run --rm -p 8017:8017 --env-file .env smartbuy。完整托管网站仍需支持 Node/Docker 的平台，未创建公共网址。
-
 
 
