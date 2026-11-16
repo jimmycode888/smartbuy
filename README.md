@@ -1,6 +1,6 @@
 # SmartBuy — Conversational Tech Advisor
 
-CCC8015 本地可交互耳机选购原型。当前资料库为 **10 款耳机 + 8 款鼠标，共18款真实商品**，查询于2026-11-13。商品卡片现使用对应型号的真实商品图片；首页装饰仍为原创示意图。未公开部署。
+CCC8015 本地可交互耳机选购原型。当前资料库为 **10 款耳机 + 8 款鼠标，共18款真实商品**，查询于2026-11-13。商品卡片现使用对应型号的真实商品图片；首页装饰仍为原创示意图。代码已公开；尚未部署常驻在线网站。
 
 ## 启动和使用
 需要 Node.js 22+（本机验证版本24.14.0）。无第三方npm运行依赖。
@@ -153,5 +153,7 @@ Edge浏览器实际操作与观察见 `docs/browser-checks.md`，截图 `docs/pr
 局限：追问路由识别常见中英文表达，复杂自由问法仍可能进入需求解析或无法理解；解释是结构化模板，不是自由生成长篇购买意见。调整方案只搜索一次改变一个条件的情况，不保证找到所有组合或最优折中。当前无登录与生产级身份隔离，仍为本地课堂原型。比较区的条件核对为浏览器展示辅助；服务端才是推荐硬过滤的权威。资料库缺失项与外链价格限制继续适用。
 
 ## GitHub 运行（2026-11-16）
-仓库为私有。Code → Codespaces → Create codespace on main，启动后打开 Ports 中的 8017（默认私有）。Codespaces 可能消耗账号额度，请在使用后停止。可在 Codespaces Secrets 配置 DEEPSEEK_API_KEY 后重建/重启环境，未配置时为演示模式。GitHub Pages 无法运行本项目 Node 后端。Docker 可用 docker build -t smartbuy . 和 docker run --rm -p 8017:8017 --env-file .env smartbuy。完整托管网站仍需支持 Node/Docker 的平台，未创建公共网址。
+仓库已按用户授权公开：https://github.com/jimmycode888/smartbuy 。Code → Codespaces → Create codespace on main，启动后打开 Ports 中的 8017（默认私有）。Codespaces 可能消耗账号额度，请在使用后停止。可在 Codespaces Secrets 配置 DEEPSEEK_API_KEY 后重建/重启环境，未配置时为演示模式。GitHub Pages 无法运行本项目 Node 后端。Docker 可用 docker build -t smartbuy . 和 docker run --rm -p 8017:8017 --env-file .env smartbuy。完整托管网站仍需支持 Node/Docker 的平台，未创建公共网址。
+
+
 
