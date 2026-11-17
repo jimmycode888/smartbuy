@@ -1,6 +1,6 @@
-import {products,parse,validate,recommend} from './core.mjs';
-import {mice,parseMouse,validateMouse,recommendMouse} from './mouse.mjs';
-import {adjustmentOptions,changesBetween,groundedFollowup} from './advisor.mjs';
+import {products,parse,validate,recommend} from './core.mjs?v=aeb3dd6dc539';
+import {mice,parseMouse,validateMouse,recommendMouse} from './mouse.mjs?v=902fe2ddd4f6';
+import {adjustmentOptions,changesBetween,groundedFollowup} from './advisor.mjs?v=18c060b34ce0';
 const sessions=new Map();const originalFetch=globalThis.fetch.bind(globalThis);
 let finishStartup;const startup=new Promise(resolve=>{finishStartup=resolve});
 globalThis.fetch=async(input,init={})=>{
@@ -28,7 +28,7 @@ globalThis.fetch=async(input,init={})=>{
  return Response.json(result);
  }catch(e){return Response.json({error:e.message||'演示请求失败，需求未更新。'},{status:400})}
 };
-for(const src of ['./i18n.js','./app.js','./mouse-ui.js','./advisor-ui.js'])await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.append(s)});
+for(const src of ['./i18n.js?v=5e99b3a223fd','./app.js?v=292c5c271665','./mouse-ui.js?v=f8a3024a663c','./advisor-ui.js?v=3a25085626af'])await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.append(s)});
 finishStartup();
 document.body.inert=false;
 document.querySelector('#about-mode').textContent='当前为浏览器规则演示，不调用真实 AI；刷新会清空对话。';
