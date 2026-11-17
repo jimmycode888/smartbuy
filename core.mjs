@@ -35,7 +35,7 @@ export const products=[
       "source": "https://www.sony.co.uk/headphones/products/wh-ch520",
       "credit": "Sony 官方产品图 · 黑色",
       "checked": "2026-11-14",
-      "local": "/images/sony-ch520.png"
+      "local": "./images/sony-ch520.png"
     }
   },
   {
@@ -417,7 +417,7 @@ export const products=[
     ],
     "image": {
       "url": "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8abfd8b7/01.LS_JBL_Tune_530BT_Product-Image_Hero_Black.png?sh=535&sw=535",
-      "local": "/images/jbl-530.png",
+      "local": "./images/jbl-530.png",
       "source": "https://www.jbl.com/TUNE530BT.html",
       "credit": "JBL 产品图",
       "checked": "2026-11-17"
@@ -457,7 +457,7 @@ export const products=[
     ],
     "image": {
       "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw70874515/01.LS_JBL_Tune_730BT_Product_Image_Hero_Blue.png?sh=535&sw=535",
-      "local": "/images/jbl-730.png",
+      "local": "./images/jbl-730.png",
       "source": "https://www.jbl.com/TUNE730BT.html",
       "credit": "JBL 产品图",
       "checked": "2026-11-17"
@@ -497,7 +497,7 @@ export const products=[
     ],
     "image": {
       "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw9ae0dbb5/01.LS_JBL_Tune_780NC_Product_Image_Hero_Black.png?sh=535&sw=535",
-      "local": "/images/jbl-780.png",
+      "local": "./images/jbl-780.png",
       "source": "https://www.jbl.com/TUNE780NC.html",
       "credit": "JBL 产品图",
       "checked": "2026-11-17"
@@ -537,7 +537,7 @@ export const products=[
     ],
     "image": {
       "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8261f485/01.LS_JBL_Wave%20Buds%202_Product%20Image_Hero_Blue.png?sh=535&sw=535",
-      "local": "/images/jbl-wave2.png",
+      "local": "./images/jbl-wave2.png",
       "source": "https://www.jbl.com/WAVE-BUDS-2.html",
       "credit": "JBL 产品图",
       "checked": "2026-11-17"
@@ -578,7 +578,7 @@ export const products=[
     ],
     "image": {
       "url": "https://shokz.com/cdn/shop/products/GREY1.png?v=1734082856&width=1000",
-      "local": "/images/shokz-move.png",
+      "local": "./images/shokz-move.png",
       "source": "https://www.thinkinggroup.com/products/shokz-openmove-s661",
       "credit": "Shokz 产品图",
       "checked": "2026-11-17"
@@ -619,7 +619,7 @@ export const products=[
     ],
     "image": {
       "url": "https://shokz.com/cdn/shop/files/OpenFitAir-Black_bd831042-5915-4715-9a9b-69830ee4a335.webp?v=1715654183&width=1000",
-      "local": "/images/shokz-air.png",
+      "local": "./images/shokz-air.png",
       "source": "https://www.thinkinggroup.com/zh-hant/products/shokz-openfit-air-t511-open-ear-headphones",
       "credit": "Shokz 产品图",
       "checked": "2026-11-17"

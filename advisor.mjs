@@ -1,5 +1,5 @@
 const createHash=()=>({update(s){this.s=s;return this},digest(){let h=14695981039346656037n;for(const c of this.s){h=BigInt.asUintN(64,(h^BigInt(c.codePointAt(0)))*1099511628211n)}return h.toString(16).padStart(16,'0')}});
-import {products,recommend,violations} from './core.mjs?v=aeb3dd6dc539';
+import {products,recommend,violations} from './core.mjs?v=638e89de0101';
 import {mice,recommendMouse,mouseViolations} from './mouse.mjs?v=902fe2ddd4f6';
 export const catalogFor=c=>c==='mouse'?mice:products;
 export const recommenderFor=c=>c==='mouse'?recommendMouse:recommend;
