@@ -262,5 +262,179 @@
       "local": "/images/mouse-g304.png"
     },
     "fictional": false
+  },
+  {
+    "id": "mouse-basilisk",
+    "category": "mouse",
+    "name": "Basilisk V3 X HyperSpeed",
+    "brand": "Razer",
+    "price": 435,
+    "currency": "HKD",
+    "region": "香港",
+    "bluetooth": true,
+    "receiver": true,
+    "receiverPort": "USB-A",
+    "receiverIncluded": true,
+    "silent": null,
+    "hand": "right",
+    "weight": 110,
+    "weightNote": "厂商标称约110g；电池类型会影响使用重量。",
+    "batteryText": "未核实",
+    "dimensions": "130.1 × 75.1 × 42.5 mm",
+    "power": "AA电池",
+    "source": "https://mysupport.razer.com/app/answers/detail/a_id/9766/~/razer-basilisk-v3-x-hyperspeed-%257C-rz01-0487-support-%2526-faqs",
+    "specSources": [
+      "https://mysupport.razer.com/app/answers/detail/a_id/9766/~/razer-basilisk-v3-x-hyperspeed-%257C-rz01-0487-support-%2526-faqs",
+      "https://www.razer.com/gaming-mice/razer-basilisk-v3-x-hyperspeed"
+    ],
+    "priceSource": "https://shop.price.com.hk/razerproshop/product/2031470",
+    "pricePublisher": "Razer Pro Shop 香港",
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "priceEvidence": "2026-11-17 来源页面公开标价或搜索索引；非实时结账报价",
+    "image": {
+      "url": "https://www.price.com.hk//space/ec_product/shop/2031000/2031470_z2ovph_0.jpg",
+      "local": "/images/mouse-basilisk.jpg",
+      "source": "https://shop.price.com.hk/razerproshop/product/2031470",
+      "credit": "Razer Pro Shop 商品图",
+      "checked": "2026-11-17"
+    },
+    "fictional": false,
+    "unknownFields": [
+      "独立延迟测试",
+      "实际握持舒适度",
+      "最低系统版本兼容性实测"
+    ]
+  },
+  {
+    "id": "mouse-pro-mini",
+    "category": "mouse",
+    "name": "Pro Click Mini",
+    "brand": "Razer",
+    "price": 638,
+    "currency": "HKD",
+    "region": "香港",
+    "bluetooth": true,
+    "receiver": true,
+    "receiverPort": "USB-A",
+    "receiverIncluded": true,
+    "silent": true,
+    "hand": "both",
+    "weight": 111,
+    "weightNote": "111g采用2颗AA电池；单电池重量来源文本异常，未采用。",
+    "batteryText": "Bluetooth最高725小时；2.4GHz最高465小时，厂商标称",
+    "dimensions": "100.2 × 62.7 × 34.2 mm",
+    "power": "2 × AA电池（也支持1颗；重量不同）",
+    "source": "https://mysupport.razer.com/app/answers/detail/a_id/5763/kw/wireless%20dongle",
+    "specSources": [
+      "https://mysupport.razer.com/app/answers/detail/a_id/5763/kw/wireless%20dongle",
+      "https://dl.razerzone.com/master-guides/RazerSynapse3/Razer%20Pro%20Click%20Mini%20-%20Master%20Guide1.1%20-en.pdf"
+    ],
+    "priceSource": "https://shop.price.com.hk/razerproshop/product/474137",
+    "pricePublisher": "Razer Pro Shop 香港",
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "priceEvidence": "2026-11-17 来源页面公开标价或搜索索引；非实时结账报价",
+    "image": {
+      "url": "https://www.price.com.hk//space/ec_product/shop/474000/474137_eyflhu_0.jpg",
+      "local": "/images/mouse-pro-mini.jpg",
+      "source": "https://shop.price.com.hk/razerproshop/product/474137",
+      "credit": "Razer Pro Shop 商品图",
+      "checked": "2026-11-17"
+    },
+    "fictional": false,
+    "unknownFields": [
+      "独立延迟测试",
+      "实际握持舒适度",
+      "最低系统版本兼容性实测"
+    ]
+  },
+  {
+    "id": "mouse-xiaomi3",
+    "category": "mouse",
+    "name": "Wireless Mouse 3",
+    "brand": "Xiaomi",
+    "price": 99,
+    "currency": "HKD",
+    "region": "香港",
+    "bluetooth": true,
+    "receiver": true,
+    "receiverPort": "USB-A",
+    "receiverIncluded": true,
+    "silent": true,
+    "hand": null,
+    "weight": null,
+    "weightNote": "官方57g不含电池，含电池重量未核实，不能用于最高使用重量过滤。",
+    "batteryText": "未核实",
+    "dimensions": "119 × 64 × 41 mm",
+    "power": "1.5V电池，具体电池型号未核实",
+    "source": "https://www.mi.com/hk/product/xiaomi-wireless-mouse-3/",
+    "specSources": [
+      "https://www.mi.com/hk/product/xiaomi-wireless-mouse-3/",
+      "https://www.mi.com/hk/product/xiaomi-wireless-mouse-3/specs/"
+    ],
+    "priceSource": "https://www.fortress.com.hk/zh-hk/product/無線滑鼠-3/p/BP_13382634?variant=13382634",
+    "pricePublisher": "丰泽香港",
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "priceEvidence": "2026-11-17 来源页面公开标价或搜索索引；非实时结账报价",
+    "image": {
+      "url": "https://i02.appmifile.com/505_item_hk/07/08/2024/950de795f8d5e069a65032e4f2966ebe.png",
+      "local": "/images/mouse-xiaomi3.png",
+      "source": "https://www.mi.com/hk/product/xiaomi-wireless-mouse-3/",
+      "credit": "Xiaomi 产品图",
+      "checked": "2026-11-17"
+    },
+    "fictional": false,
+    "unknownFields": [
+      "独立延迟测试",
+      "实际握持舒适度",
+      "最低系统版本兼容性实测",
+      "左右手适用性",
+      "含电池使用重量"
+    ]
+  },
+  {
+    "id": "mouse-master3s",
+    "category": "mouse",
+    "name": "MX Master 3S (Standard Edition)",
+    "brand": "Logitech",
+    "price": 619,
+    "currency": "HKD",
+    "region": "香港",
+    "bluetooth": true,
+    "receiver": true,
+    "receiverPort": "USB-A",
+    "receiverIncluded": true,
+    "silent": true,
+    "hand": "right",
+    "weight": 141,
+    "weightNote": "标准版；不要与不含接收器的Bluetooth Edition或Mac版混淆。",
+    "batteryText": "未核实",
+    "dimensions": "124.9 × 84.3 × 51 mm",
+    "power": "内置500mAh充电电池",
+    "source": "https://www.logitech.com/en-hk/shop/p/mx-master-3s",
+    "specSources": [
+      "https://www.logitech.com/en-hk/shop/p/mx-master-3s",
+      "https://hub.sync.logitech.com/mx-master-3s"
+    ],
+    "priceSource": "https://estore.vertexhk.com/product/logitech-mx-master-3s-graphite-910-006561/",
+    "pricePublisher": "Vertex 香港",
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "priceEvidence": "2026-11-17 来源页面公开标价或搜索索引；非实时结账报价",
+    "image": {
+      "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png",
+      "local": "/images/mouse-master3s.png",
+      "source": "https://www.logitech.com/en-hk/shop/p/mx-master-3s",
+      "credit": "Logitech 产品图",
+      "checked": "2026-11-17"
+    },
+    "fictional": false,
+    "unknownFields": [
+      "独立延迟测试",
+      "实际握持舒适度",
+      "最低系统版本兼容性实测"
+    ]
   }
 ]

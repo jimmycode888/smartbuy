@@ -1,0 +1,58 @@
+{
+  "jbl-530": {
+    "source": "https://www.jbl.com/TUNE530BT.html",
+    "error": "curl: (22) The requested URL returned error: 406\r\n",
+    "url": "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8abfd8b7/01.LS_JBL_Tune_530BT_Product-Image_Hero_Black.png?sh=535&sw=535",
+    "local": "/images/jbl-530.png"
+  },
+  "jbl-730": {
+    "source": "https://www.jbl.com/TUNE730BT.html",
+    "error": "curl: (22) The requested URL returned error: 406\r\n",
+    "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw70874515/01.LS_JBL_Tune_730BT_Product_Image_Hero_Blue.png?sh=535&sw=535",
+    "local": "/images/jbl-730.png"
+  },
+  "jbl-780": {
+    "source": "https://www.jbl.com/TUNE780NC.html",
+    "error": "curl: (22) The requested URL returned error: 406\r\n",
+    "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw9ae0dbb5/01.LS_JBL_Tune_780NC_Product_Image_Hero_Black.png?sh=535&sw=535",
+    "local": "/images/jbl-780.png"
+  },
+  "jbl-wave2": {
+    "source": "https://www.jbl.com/WAVE-BUDS-2.html",
+    "error": "curl: (22) The requested URL returned error: 406\r\n",
+    "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8261f485/01.LS_JBL_Wave%20Buds%202_Product%20Image_Hero_Blue.png?sh=535&sw=535",
+    "local": "/images/jbl-wave2.png"
+  },
+  "shokz-move": {
+    "source": "https://www.thinkinggroup.com/products/shokz-openmove-s661",
+    "error": "curl: (22) The requested URL returned error: 403\r\n",
+    "url": "https://shokz.com/cdn/shop/products/GREY1.png?v=1734082856&width=1000",
+    "local": "/images/shokz-move.png"
+  },
+  "shokz-air": {
+    "source": "https://www.thinkinggroup.com/zh-hant/products/shokz-openfit-air-t511-open-ear-headphones",
+    "error": "curl: (22) The requested URL returned error: 403\r\n",
+    "url": "https://shokz.com/cdn/shop/files/OpenFitAir-Black_bd831042-5915-4715-9a9b-69830ee4a335.webp?v=1715654183&width=1000",
+    "local": "/images/shokz-air.png"
+  },
+  "mouse-basilisk": {
+    "source": "https://shop.price.com.hk/razerproshop/product/2031470",
+    "url": "https://www.price.com.hk//space/ec_product/shop/2031000/2031470_z2ovph_0.jpg",
+    "local": "/images/mouse-basilisk.jpg"
+  },
+  "mouse-pro-mini": {
+    "source": "https://shop.price.com.hk/razerproshop/product/474137",
+    "url": "https://www.price.com.hk//space/ec_product/shop/474000/474137_eyflhu_0.jpg",
+    "local": "/images/mouse-pro-mini.jpg"
+  },
+  "mouse-xiaomi3": {
+    "source": "https://www.mi.com/hk/product/xiaomi-wireless-mouse-3/",
+    "url": "https://i02.appmifile.com/505_item_hk/07/08/2024/950de795f8d5e069a65032e4f2966ebe.png",
+    "local": "/images/mouse-xiaomi3.png"
+  },
+  "mouse-master3s": {
+    "source": "https://www.logitech.com/en-hk/shop/p/mx-master-3s",
+    "url": "https://resource.logitech.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png",
+    "local": "/images/mouse-master3s.png"
+  }
+}

@@ -8,10 +8,10 @@ const sessions=new Map();const busy=new Set();
 return http.createServer(async(req,res)=>{res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Content-Type','application/json; charset=utf-8');let lock;
 try{
  const staticFiles={'/advisor-ui.js':['public/advisor-ui.js','text/javascript'],'/mouse-ui.js':['public/mouse-ui.js','text/javascript'],'/i18n.js':['public/i18n.js','text/javascript'],'/':['index.html','text/html'],'/app.js':['public/app.js','text/javascript'],'/style.css':['public/style.css','text/css']};
- for(const p of mice)staticFiles['/images/'+p.id+'.png']=['public/images/'+p.id+'.png','image/png'];
+ for(const p of [...products,...mice]){const local=p.image?.local;if(local&&/^\/images\/[a-z0-9.-]+$/i.test(local)){const ext=local.split('.').at(-1),type={png:'image/png',jpg:'image/jpeg',webp:'image/webp'}[ext];if(type)staticFiles[local]=['public'+local,type];}}
  if(req.method==='GET'&&staticFiles[req.url]){const [path,type]=staticFiles[req.url];res.setHeader('Content-Type',type+'; charset=utf-8');return res.end(await readFile(new URL(path,import.meta.url)));}
  const mode=key?'DeepSeek 模型模式':'演示模式 · 规则理解';
- if(req.method==='GET'&&req.url==='/api/status')return res.end(JSON.stringify({mode,modelEnabled:!!key,count:products.length+mice.length,collected:'2026-11-13',dataset:'真实商品资料'}));
+ if(req.method==='GET'&&req.url==='/api/status')return res.end(JSON.stringify({mode,modelEnabled:!!key,count:products.length+mice.length,collected:[...products,...mice].map(p=>p.collected).sort().at(-1),dataset:'真实商品资料'}));
  if(req.method==='GET'&&req.url==='/api/products')return res.end(JSON.stringify({products:[...products.map(p=>({...p,category:'headphone'})),...mice]}));
  if(req.method!=='POST'||!['/api/chat','/api/reset'].includes(req.url)){res.statusCode=404;return res.end('{}');}
  let raw='';for await(const chunk of req){raw+=chunk;if(Buffer.byteLength(raw)>16000){res.statusCode=413;return res.end(JSON.stringify({error:'请求过长'}));}}

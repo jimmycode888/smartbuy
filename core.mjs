@@ -25,7 +25,7 @@ export function parse(text,state={}){
  if(/取消续航要求|续航不限/.test(text))p.minBattery=0;
  if(/续航越长|长续航/.test(text))p.preferBattery=true;if(/不再偏好长续航/.test(text))p.preferBattery=false;
  for(const use of ['通勤','学习','游戏','运动','音乐'])if(text.includes(use))p.use=use;
- if(/品牌不限/.test(text))p.brand='';else if(/偏好|喜欢/.test(text)){if(/sony|索尼/i.test(text))p.brand='Sony';if(/xiaomi|小米|红米/i.test(text))p.brand='Xiaomi';}
+ if(/品牌不限|no brand preference/i.test(text))p.brand='';else if(/偏好|喜欢|prefer/i.test(text)){for(const brand of new Set(products.map(p=>p.brand)))if(text.toLowerCase().includes(brand.toLowerCase()))p.brand=brand;if(/索尼/.test(text))p.brand='Sony';if(/小米|红米/.test(text))p.brand='Xiaomi';if(/韶音/.test(text))p.brand='Shokz';}
  return validate(p);
 }
 export const batteryFor=(p,s)=>s.anc===true?p.batteryAnc:p.battery;

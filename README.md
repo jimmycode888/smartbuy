@@ -1,5 +1,12 @@
 # SmartBuy — Conversational Tech Advisor
 
+## 资料库扩充（2026-11-17）
+
+当前共28款真实商品：16款耳机、12款鼠标。新增JBL Tune 530BT / 730BT / 780NC、Wave Buds 2；Shokz OpenMove S661 / OpenFit Air T511；Razer Basilisk V3 X HyperSpeed / Pro Click Mini；Xiaomi Wireless Mouse 3；Logitech MX Master 3S标准版。新增项均有本地商品图片、独立采集日期、香港参考价、来源与未知项。详细逐款证据与APA条目：docs/catalog-expansion-2026-11-17.md。品牌菜单、数量和日期范围从资料库生成。
+
+52项测试通过，结果：docs/catalog-tests-2026-11-17.txt。首次扩充回归37通过、10失败，均为旧商品数量、排序、图片格式或最低匹配价预期，已记录并更新；不是删去硬条件测试。真实DeepSeek仍未验证。历史PPT和早期记录中的18款/47项是旧版本证据，应在下次修订时同步。
+
+
 ## 当前版本（2026-11-17）
 
 公开功能演示：https://jimmycode888.github.io/smartbuy/ 。GitHub Pages 在浏览器内执行规则筛选，不调用 DeepSeek；刷新清空对话。本地 Node 版本仍支持通过服务端环境变量接入模型，但真实 API 尚未验证。运行 `node build-demo.mjs` 生成 `site/`，将其中内容发布至 gh-pages。

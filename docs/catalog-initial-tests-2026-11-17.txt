@@ -1,0 +1,269 @@
+✖ 1 明确预算/排除入耳：真实候选满足全部硬条件 (3.507ms)
+✔ 2 模糊需求只追问预算 (0.4153ms)
+✔ 3 低预算多要求：无结果并说明 (0.2421ms)
+✔ 4 预算更新保留用途和排除条件 (0.1664ms)
+✔ 5 不接受入耳不会设置入耳类型 (0.5892ms)
+✔ 6 未知ANC开启续航不满足最低续航 (0.1464ms)
+✔ 7 无结果不造商品 (0.1298ms)
+✔ 8 攻击不改变价格/条件 (1.0577ms)
+✔ 9 追问后接受简短预算 (0.5862ms)
+✔ 10 类型和取消续航解析 (0.3836ms)
+✖ 11 长续航按单次值排序而非充电盒 (0.8848ms)
+✔ 12 ANC模式使用对应值 (0.1692ms)
+✔ 13 品牌偏好不得越过预算 (0.9607ms)
+✖ 14 10款真实商品均有价格与参数出处，正价格/唯一ID (0.2685ms)
+✔ 15 币种不隐式换算 (0.1552ms)
+✔ 16 非法模型输出被过滤 (0.0834ms)
+✖ 17 HTTP演示多轮、手动条件、重置 (69.359ms)
+✔ 18 模拟API失败返回明确错误且条件不变（非真实模型测试） (14.2038ms)
+✔ 19 公共端点和静态资源不暴露测试密钥 (14.3675ms)
+✔ 20 模拟模型只能修改白名单条件，不能插入商品 (4.666ms)
+✔ 21 英文需求与中文需求结果相同 (0.2459ms)
+✖ 22 英文预算更新与ANC续航要求保留硬条件 (0.2211ms)
+✖ 23 鼠标：8款真实数据均有价格、规格、图片来源 (0.1925ms)
+✔ 24 鼠标：模糊需求先问预算 (0.8111ms)
+✔ 25 鼠标：预算200办公蓝牙只返回匹配真实产品 (0.4298ms)
+✔ 26 USB-C-only不假设蓝牙：先追问，确认无蓝牙则无结果 (0.1567ms)
+✔ 27 左手排除右手与未知，硬条件不放宽 (0.4035ms)
+✔ 28 静音偏好与必须静音不同 (0.1171ms)
+✔ 29 重量未知不满足最高重量 (0.0746ms)
+✔ 30 攻击与耳机字段不会进入鼠标条件 (0.0555ms)
+✖ 31 鼠标预算修改保留连接与用途 (0.1633ms)
+✔ 32 HTTP同一ID不同品类相互隔离，重置仅当前品类 (12.2643ms)
+✖ 33 鼠标本地图片全部返回真实PNG (12.2454ms)
+✔ 34 条件更新显式报告旧值与新值 (0.2452ms)
+✔ 35 无结果方案只预览且全部来源有效 (1.7824ms)
+✔ 36 旧方案ID不会在条件变化后复用 (0.2539ms)
+✔ 37 候选追问只用有效商品并保留条件 (0.3072ms)
+✖ 38 更便宜替代仍满足所有硬条件 (0.2695ms)
+✔ 39 自选比较可以包含不符合条件商品，但必须标记 (0.2891ms)
+✔ 40 提示攻击拒绝编造 (0.0689ms)
+✖ 41 HTTP追问不改状态，显式应用方案后才更新 (6.7172ms)
+✔ 42 混合比较与预算修改时，新条件必须生效 (4.8589ms)
+✔ 43 明确型号优先于自选上下文 (0.1751ms)
+✔ 44 第一款追问仅引用第一候选 (0.0814ms)
+✔ 45 无ANC商品不会声称有未知ANC工作模式 (0.0745ms)
+✔ 46 有更便宜替代时逐款仍满足全部硬条件 (0.1409ms)
+✔ 47 缺失防水参数明确未知 (0.1494ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 37
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 304.9878
+
+✖ failing tests:
+
+test at tests.mjs:6:1
+✖ 1 明确预算/排除入耳：真实候选满足全部硬条件 (3.507ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 2
+  
+      at TestContext.<anonymous> (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:6:75)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.start (node:internal/test_runner/test:1015:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests.mjs:16:1
+✖ 11 长续航按单次值排序而非充电盒 (0.8848ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'jbl-530'
+  - 'sony-ch520'
+  
+      at TestContext.<anonymous> (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:16:74)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'jbl-530',
+    expected: 'sony-ch520',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests.mjs:19:1
+✖ 14 10款真实商品均有价格与参数出处，正价格/唯一ID (0.2685ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  16 !== 10
+  
+      at TestContext.<anonymous> (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:19:49)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 16,
+    expected: 10,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests.mjs:24:1
+✖ 17 HTTP演示多轮、手动条件、重置 (69.359ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'jbl-780'
+  - 'sony-ch720n'
+  
+      at file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:24:322
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withServer (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:22:183)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'jbl-780',
+    expected: 'sony-ch720n',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests.mjs:29:1
+✖ 22 英文预算更新与ANC续航要求保留硬条件 (0.2211ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'jbl-780'
+  - 'sony-ch720n'
+  
+      at TestContext.<anonymous> (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:29:157)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'jbl-780',
+    expected: 'sony-ch720n',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests.mjs:32:1
+✖ 23 鼠标：8款真实数据均有价格、规格、图片来源 (0.1925ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  12 !== 8
+  
+      at TestContext.<anonymous> (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:32:45)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 12,
+    expected: 8,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests.mjs:40:1
+✖ 31 鼠标预算修改保留连接与用途 (0.1633ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:40:179)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests.mjs:42:1
+✖ 33 鼠标本地图片全部返回真实PNG (12.2454ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /image\/png/. Input:
+  
+  'image/jpeg; charset=utf-8'
+  
+      at file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:42:148
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withServer (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:22:183)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'image/jpeg; charset=utf-8',
+    expected: /image\/png/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests.mjs:48:1
+✖ 38 更便宜替代仍满足所有硬条件 (0.2695ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:48:167)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests.mjs:51:1
+✖ 41 HTTP追问不改状态，显式应用方案后才更新 (6.7172ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  349 !== 399
+  
+      at file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:51:482
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withServer (file:///C:/Users/Jimmy/Documents/ChatGPT/8015/smartbuy/tests.mjs:22:183)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 349,
+    expected: 399,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

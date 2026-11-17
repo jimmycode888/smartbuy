@@ -34,7 +34,8 @@
       "url": "https://sony.scene7.com/is/image/sonyglobalsolutions/00-7?$large360ViewerImage$=",
       "source": "https://www.sony.co.uk/headphones/products/wh-ch520",
       "credit": "Sony 官方产品图 · 黑色",
-      "checked": "2026-11-14"
+      "checked": "2026-11-14",
+      "local": "/images/sony-ch520.png"
     }
   },
   {
@@ -380,6 +381,248 @@
       "source": "https://www.fortress.com.hk/en/product/openwear-stereo-headphone/p/BP_13364284",
       "credit": "丰泽商品图 · OpenWear Stereo",
       "checked": "2026-11-14"
+    }
+  },
+  {
+    "id": "jbl-530",
+    "name": "Tune 530BT",
+    "brand": "JBL",
+    "price": 349,
+    "currency": "HKD",
+    "region": "香港",
+    "type": "头戴式",
+    "fit": "贴耳式 On-ear",
+    "anc": null,
+    "battery": 76,
+    "batteryAnc": null,
+    "caseBattery": null,
+    "batteryNote": "厂商标称单次最高76小时；本次未独立实测。",
+    "tradeoff": "贴耳设计需试戴；通话麦克风降噪不作为聆听ANC保证。",
+    "fictional": false,
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "source": "https://www.jbl.com/TUNE530BT.html",
+    "priceSource": "https://www.worldtech.com.hk/en/products/jbl-tune-530bt-wireless-on-ear-headphones",
+    "pricePublisher": "World-Tech 香港",
+    "priceEvidence": "2026-11-17 来源页面公开标价；部分通过搜索索引核实，非实时结账报价",
+    "specSources": [
+      "https://www.jbl.com/TUNE530BT.html"
+    ],
+    "subjective": "未进行独立试听；不对音质、舒适度或通话效果作评分",
+    "unknownFields": [
+      "实际游戏延迟",
+      "独立音质测试",
+      "佩戴舒适度实测",
+      "聆听ANC"
+    ],
+    "image": {
+      "url": "https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8abfd8b7/01.LS_JBL_Tune_530BT_Product-Image_Hero_Black.png?sh=535&sw=535",
+      "local": "/images/jbl-530.png",
+      "source": "https://www.jbl.com/TUNE530BT.html",
+      "credit": "JBL 产品图",
+      "checked": "2026-11-17"
+    }
+  },
+  {
+    "id": "jbl-730",
+    "name": "Tune 730BT",
+    "brand": "JBL",
+    "price": 549,
+    "currency": "HKD",
+    "region": "香港",
+    "type": "头戴式",
+    "fit": "包耳式 Over-ear",
+    "anc": null,
+    "battery": 76,
+    "batteryAnc": null,
+    "caseBattery": null,
+    "batteryNote": "厂商标称单次最高76小时；本次未独立实测。",
+    "tradeoff": "体积较耳塞大；本次未将聆听ANC作为已核实能力。",
+    "fictional": false,
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "source": "https://www.jbl.com/TUNE730BT.html",
+    "priceSource": "https://www.worldtech.com.hk/en/categories/jbl",
+    "pricePublisher": "World-Tech 香港",
+    "priceEvidence": "2026-11-17 来源页面公开标价；部分通过搜索索引核实，非实时结账报价",
+    "specSources": [
+      "https://www.jbl.com/TUNE730BT.html"
+    ],
+    "subjective": "未进行独立试听；不对音质、舒适度或通话效果作评分",
+    "unknownFields": [
+      "实际游戏延迟",
+      "独立音质测试",
+      "佩戴舒适度实测",
+      "聆听ANC"
+    ],
+    "image": {
+      "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw70874515/01.LS_JBL_Tune_730BT_Product_Image_Hero_Blue.png?sh=535&sw=535",
+      "local": "/images/jbl-730.png",
+      "source": "https://www.jbl.com/TUNE730BT.html",
+      "credit": "JBL 产品图",
+      "checked": "2026-11-17"
+    }
+  },
+  {
+    "id": "jbl-780",
+    "name": "Tune 780NC",
+    "brand": "JBL",
+    "price": 699,
+    "currency": "HKD",
+    "region": "香港",
+    "type": "头戴式",
+    "fit": "包耳式 Over-ear",
+    "anc": true,
+    "battery": 76,
+    "batteryAnc": 50,
+    "caseBattery": null,
+    "batteryNote": "蓝牙开启：ANC关闭最高76小时，ANC开启最高50小时；采用规格表，概览脚注存在表述不一致。",
+    "tradeoff": "ANC开启会降低续航；降噪效果与舒适度未独立实测。",
+    "fictional": false,
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "source": "https://www.jbl.com/TUNE780NC.html",
+    "priceSource": "https://www.worldtech.com.hk/en/products/jbl-tune-780nc-wireless-over-ear-headphones",
+    "pricePublisher": "World-Tech 香港",
+    "priceEvidence": "2026-11-17 来源页面公开标价；部分通过搜索索引核实，非实时结账报价",
+    "specSources": [
+      "https://www.jbl.com/TUNE780NC.html",
+      "https://global.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw7a5c82fd/pdfs/JBL_Tune_780NC_Specsheet_EN.pdf"
+    ],
+    "subjective": "未进行独立试听；不对音质、舒适度或通话效果作评分",
+    "unknownFields": [
+      "实际游戏延迟",
+      "独立音质测试",
+      "佩戴舒适度实测"
+    ],
+    "image": {
+      "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw9ae0dbb5/01.LS_JBL_Tune_780NC_Product_Image_Hero_Black.png?sh=535&sw=535",
+      "local": "/images/jbl-780.png",
+      "source": "https://www.jbl.com/TUNE780NC.html",
+      "credit": "JBL 产品图",
+      "checked": "2026-11-17"
+    }
+  },
+  {
+    "id": "jbl-wave2",
+    "name": "Wave Buds 2",
+    "brand": "JBL",
+    "price": 499,
+    "currency": "HKD",
+    "region": "香港",
+    "type": "入耳式",
+    "fit": "硅胶耳塞 In-ear",
+    "anc": true,
+    "battery": 10,
+    "batteryAnc": 8,
+    "caseBattery": 40,
+    "batteryNote": "ANC关闭单次10小时，含盒总40小时；ANC开启单次8小时，含盒总时间未核实。",
+    "tradeoff": "需接受入耳佩戴；40小时是ANC关闭且包含充电盒的总时间。",
+    "fictional": false,
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "source": "https://www.jbl.com/WAVE-BUDS-2.html",
+    "priceSource": "https://www.worldtech.com.hk/en/products/jbl-wave-buds-2-true-wireless-in-ear-earbuds",
+    "pricePublisher": "World-Tech 香港",
+    "priceEvidence": "2026-11-17 来源页面公开标价；部分通过搜索索引核实，非实时结账报价",
+    "specSources": [
+      "https://www.jbl.com/WAVE-BUDS-2.html",
+      "https://support.jbl.com/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwd418faeb/pdfs/JBL_Wave_Buds_2_Specsheet_EN.pdf"
+    ],
+    "subjective": "未进行独立试听；不对音质、舒适度或通话效果作评分",
+    "unknownFields": [
+      "实际游戏延迟",
+      "独立音质测试",
+      "佩戴舒适度实测"
+    ],
+    "image": {
+      "url": "https://jp.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8261f485/01.LS_JBL_Wave%20Buds%202_Product%20Image_Hero_Blue.png?sh=535&sw=535",
+      "local": "/images/jbl-wave2.png",
+      "source": "https://www.jbl.com/WAVE-BUDS-2.html",
+      "credit": "JBL 产品图",
+      "checked": "2026-11-17"
+    }
+  },
+  {
+    "id": "shokz-move",
+    "name": "OpenMove S661",
+    "brand": "Shokz",
+    "price": 599,
+    "currency": "HKD",
+    "region": "香港",
+    "type": "开放式",
+    "fit": "后挂骨传导 Open-ear",
+    "anc": null,
+    "battery": 6,
+    "batteryAnc": null,
+    "caseBattery": null,
+    "batteryNote": "厂商标称单次最高6小时；一体式，无充电盒。",
+    "tradeoff": "开放式不封闭耳道；通话降噪不能等同聆听ANC。",
+    "fictional": false,
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "source": "https://shokz.com/products/openmove",
+    "priceSource": "https://www.thinkinggroup.com/products/shokz-openmove-s661",
+    "pricePublisher": "Thinking Group 香港",
+    "priceEvidence": "2026-11-17 来源页面公开标价；部分通过搜索索引核实，非实时结账报价",
+    "specSources": [
+      "https://shokz.com/products/openmove",
+      "https://www.thinkinggroup.com/products/shokz-openmove-s661"
+    ],
+    "subjective": "未进行独立试听；不对音质、舒适度或通话效果作评分",
+    "unknownFields": [
+      "实际游戏延迟",
+      "独立音质测试",
+      "佩戴舒适度实测",
+      "聆听ANC"
+    ],
+    "image": {
+      "url": "https://shokz.com/cdn/shop/products/GREY1.png?v=1734082856&width=1000",
+      "local": "/images/shokz-move.png",
+      "source": "https://www.thinkinggroup.com/products/shokz-openmove-s661",
+      "credit": "Shokz 产品图",
+      "checked": "2026-11-17"
+    }
+  },
+  {
+    "id": "shokz-air",
+    "name": "OpenFit Air T511",
+    "brand": "Shokz",
+    "price": 899,
+    "currency": "HKD",
+    "region": "香港",
+    "type": "开放式",
+    "fit": "耳挂开放式 Open-ear",
+    "anc": null,
+    "battery": 6,
+    "batteryAnc": null,
+    "caseBattery": 28,
+    "batteryNote": "厂商标称单次6小时，含充电盒总28小时。",
+    "tradeoff": "需接受耳挂；通话降噪不作为聆听ANC保证，实际漏音未实测。",
+    "fictional": false,
+    "collected": "2026-11-17",
+    "priceType": "页面标价（未计优惠券及运费）",
+    "source": "https://shokz.com/products/openfitair",
+    "priceSource": "https://www.thinkinggroup.com/zh-hant/products/shokz-openfit-air-t511-open-ear-headphones",
+    "pricePublisher": "Thinking Group 香港",
+    "priceEvidence": "2026-11-17 来源页面公开标价；部分通过搜索索引核实，非实时结账报价",
+    "specSources": [
+      "https://shokz.com/products/openfitair",
+      "https://shokz.com/blogs/news/openfit-air-2-vs-openfit-air"
+    ],
+    "subjective": "未进行独立试听；不对音质、舒适度或通话效果作评分",
+    "unknownFields": [
+      "实际游戏延迟",
+      "独立音质测试",
+      "佩戴舒适度实测",
+      "聆听ANC"
+    ],
+    "image": {
+      "url": "https://shokz.com/cdn/shop/files/OpenFitAir-Black_bd831042-5915-4715-9a9b-69830ee4a335.webp?v=1715654183&width=1000",
+      "local": "/images/shokz-air.png",
+      "source": "https://www.thinkinggroup.com/zh-hant/products/shokz-openfit-air-t511-open-ear-headphones",
+      "credit": "Shokz 产品图",
+      "checked": "2026-11-17"
     }
   }
 ]
