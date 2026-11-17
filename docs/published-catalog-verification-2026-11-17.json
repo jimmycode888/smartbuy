@@ -1,0 +1,82 @@
+[
+  {
+    "path": "index.html",
+    "match": true,
+    "bytes": 7114
+  },
+  {
+    "path": "core.mjs",
+    "match": true,
+    "bytes": 31819
+  },
+  {
+    "path": "mouse.mjs",
+    "match": true,
+    "bytes": 23329
+  },
+  {
+    "path": "app.js",
+    "match": true,
+    "bytes": 16788
+  },
+  {
+    "path": "mouse-ui.js",
+    "match": true,
+    "bytes": 9395
+  },
+  {
+    "path": "i18n.js",
+    "match": true,
+    "bytes": 36144
+  },
+  {
+    "path": "images/jbl-530.png",
+    "match": true,
+    "bytes": 1820899
+  },
+  {
+    "path": "images/jbl-730.png",
+    "match": true,
+    "bytes": 235562
+  },
+  {
+    "path": "images/jbl-780.png",
+    "match": true,
+    "bytes": 206816
+  },
+  {
+    "path": "images/jbl-wave2.png",
+    "match": true,
+    "bytes": 138754
+  },
+  {
+    "path": "images/shokz-move.png",
+    "match": true,
+    "bytes": 183827
+  },
+  {
+    "path": "images/shokz-air.png",
+    "match": true,
+    "bytes": 433984
+  },
+  {
+    "path": "images/mouse-basilisk.jpg",
+    "match": true,
+    "bytes": 91160
+  },
+  {
+    "path": "images/mouse-pro-mini.jpg",
+    "match": true,
+    "bytes": 59526
+  },
+  {
+    "path": "images/mouse-xiaomi3.png",
+    "match": true,
+    "bytes": 626683
+  },
+  {
+    "path": "images/mouse-master3s.png",
+    "match": true,
+    "bytes": 22702
+  }
+]

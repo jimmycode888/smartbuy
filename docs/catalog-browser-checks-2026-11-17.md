@@ -10,3 +10,5 @@
 - Switched categories and checked both Shokz images and retained headphone requirement state.
 - Automated test rerun52/52pass; original expansion attempt37pass/10fail recorded separately. Changed expectations concern new catalogue counts, sorting, lower qualifying price and PNG/JPEG file formats. Core constraint assertions remain.
 - No realDeepSeek request executed.
+
+Public deployment: pushed main e17a438 and gh-pages 522ffe3. Unauthenticated curl requests retrieved the homepage, 5 other core assets and all10 new pictures;16/16 hashes matched the tested build (text compared after newline normalization). Current Edge external navigation failed with ERR_CONNECTION_CLOSED; local Edge interaction checks above were completed, not falsely reported as online interaction. Published verification: published-catalog-verification-2026-11-17.json. Screenshot catalog-expanded-preview.jpg is from local tested build.
