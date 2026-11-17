@@ -12,3 +12,6 @@
 - **REDMI Buds 6 Lite**：[来源页面](https://www.mi.com/hk/product/redmi-buds-6-lite/) · [图片](https://i02.appmifile.com/mi-com-product/fly-birds/redmi-buds-6-lite/pc/PC_03_image94.jpg) · Xiaomi 官方产品图
 - **REDMI Buds 6**：[来源页面](https://www.mi.com/hk/product/redmi-buds-6/) · [图片](https://i02.appmifile.com/mi-com-product/fly-birds/redmi-buds-6/PC-global/92d75bd093d30ed68fcc572f473f2079.png) · Xiaomi 官方产品图
 - **OpenWear Stereo**：[来源页面](https://www.fortress.com.hk/en/product/openwear-stereo-headphone/p/BP_13364284) · [图片](https://medias.fortress.com.hk/publishing/FTRHK-13364284-FRONT-zoom.jpg?version=1769745692) · 丰泽商品图 · OpenWear Stereo
+
+
+2026-11-17: WH-CH520 official Sony image saved locally as public/images/sony-ch520.png from https://sony.scene7.com/is/image/sonyglobalsolutions/00-7?fmt=png-alpha&wid=600 . Copyright remains with Sony. Used on welcome screen and matching product card.

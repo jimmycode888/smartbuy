@@ -30,8 +30,8 @@ globalThis.fetch=async(input,init={})=>{
 };
 for(const src of ['./i18n.js','./app.js','./mouse-ui.js','./advisor-ui.js'])await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.append(s)});
 finishStartup();
-const disclosure=document.createElement('p');disclosure.textContent='GitHub Pages 功能演示 · 在浏览器内执行规则筛选，不调用真实 AI；刷新会清空对话。';disclosure.style.cssText='margin:0;padding:10px 24px;background:#e9f0e5;color:#254333;text-align:center;font-size:14px';document.body.prepend(disclosure);
+document.body.inert=false;
+document.querySelector('#about-mode').textContent='当前为浏览器规则演示，不调用真实 AI；刷新会清空对话。';
 
 document.dispatchEvent(new Event('DOMContentLoaded'));
-
 
