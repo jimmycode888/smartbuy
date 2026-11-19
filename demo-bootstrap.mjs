@@ -1,6 +1,6 @@
-import {products,parse,validate,recommend} from './core.mjs?v=f761a17a3292';
-import {mice,parseMouse,validateMouse,recommendMouse} from './mouse.mjs?v=7d6262f3b8f9';
-import {adjustmentOptions,changesBetween,groundedFollowup,pendingPreference,preferenceTurn,withPreferenceQuestion} from './advisor.mjs?v=c849b3438080';
+import {products,parse,validate,recommend} from './core.mjs?v=dcb1f02c7032';
+import {mice,parseMouse,validateMouse,recommendMouse} from './mouse.mjs?v=f41c4693c1df';
+import {adjustmentOptions,changesBetween,groundedFollowup,pendingPreference,preferenceTurn,withPreferenceQuestion} from './advisor.mjs?v=222e343ca649';
 const sessions=new Map();const originalFetch=globalThis.fetch.bind(globalThis);
 let finishStartup;const startup=new Promise(resolve=>{finishStartup=resolve});
 globalThis.fetch=async(input,init={})=>{

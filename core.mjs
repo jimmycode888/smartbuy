@@ -1,3 +1,4 @@
+import {parseBudget} from './budget.mjs?v=e9e588b882de';
 export const products=[
   {
     "id": "sony-ch520",
@@ -639,10 +640,9 @@ export function validate(p){const out={};if(!p||typeof p!=='object'||Array.isArr
  if(k==='brand'&&typeof v==='string')out[k]=v.slice(0,40);
  }return out;}
 export function parse(text,state={}){
- text=text.replace(/(?:no|exclude|not)\s+in[- ]ear/gi,'不接受入耳式').replace(/(?:any fit|no fit preference)/gi,'佩戴不限').replace(/headband|over[- ]ear|on[- ]ear/gi,'头戴式').replace(/open[- ]ear/gi,'开放式').replace(/in[- ]ear/gi,'入耳式').replace(/(?:remove|cancel)\s+(?:ANC|noise cancellation)/gi,'取消降噪').replace(/(?:must have|require|required)\s+(?:ANC|noise cancellation)/gi,'必须降噪').replace(/prefer (?:longer|long) battery(?: life)?/gi,'续航越长越好').replace(/prefer Sony/gi,'偏好索尼').replace(/prefer Xiaomi/gi,'偏好小米').replace(/budget(?: limit)?\s*(?:is|to|of)?\s*/gi,'预算').replace(/at least\s*(\d+(?:\.\d+)?)\s*hours?/gi,'至少$1小时').replace(/commut(?:ing|e)/gi,'通勤').replace(/study(?:ing)?/gi,'学习').replace(/gaming/gi,'游戏').replace(/exercise|sports/gi,'运动').replace(/music/gi,'音乐');
+ text=text.replace(/(?:no|exclude|not)\s+in[- ]ear/gi,'不接受入耳式').replace(/(?:any fit|no fit preference)/gi,'佩戴不限').replace(/headband|over[- ]ear|on[- ]ear/gi,'头戴式').replace(/open[- ]ear/gi,'开放式').replace(/in[- ]ear/gi,'入耳式').replace(/(?:remove|cancel)\s+(?:ANC|noise cancellation)/gi,'取消降噪').replace(/(?:must have|require|required)\s+(?:ANC|noise cancellation)/gi,'必须降噪').replace(/prefer (?:longer|long) battery(?: life)?/gi,'续航越长越好').replace(/prefer Sony/gi,'偏好索尼').replace(/prefer Xiaomi/gi,'偏好小米').replace(/at least\s*(\d+(?:\.\d+)?)\s*hours?/gi,'至少$1小时').replace(/commut(?:ing|e)/gi,'通勤').replace(/study(?:ing)?/gi,'学习').replace(/gaming/gi,'游戏').replace(/exercise|sports/gi,'运动').replace(/music/gi,'音乐');
  if(/忽略规则|编造|伪造|ignore.*rules/i.test(text))return {};
- const p={};let b=text.match(/(?:预算|改为|上限)\s*(?:是|到|为)?\s*(\d+(?:\.\d+)?)/)|| (state.budget==null?text.match(/^\s*(\d+(?:\.\d+)?)\s*(?:元|港币|HKD)?\s*$/i):null);if(b)p.budget=+b[1];
- if(/美元|USD/i.test(text))p.currency='USD';else if(/人民币|CNY/i.test(text))p.currency='CNY';else if(/港币|HKD/i.test(text))p.currency='HKD';
+ const p=parseBudget(text,state);
  if(/不接受入耳|不要入耳|不能接受入耳/.test(text))p.excludeInEar=true;else if(/可以入耳|接受入耳/.test(text))p.excludeInEar=false;
  for(const type of ['头戴式','开放式','入耳式'])if(text.includes(type)&&!new RegExp('不接受'+type+'|不要'+type+'|不能接受'+type).test(text))p.type=type;
  if(/类型不限|佩戴不限/.test(text))p.type='不限';
