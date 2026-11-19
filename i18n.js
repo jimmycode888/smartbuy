@@ -12,10 +12,57 @@ const originals=new WeakMap();
 const translate=text=>{if(language!=='en')return text;let tokens=[];let value=text;for(const [zh,en]of dictionary){if(value.includes(zh)){const token='\uE000'+tokens.length+'\uE001';value=value.split(zh).join(token);tokens.push(en)}}return value.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[+i]).replace(/，/g,", ").replace(/；/g,"; ").replace(/(\d) \./g,"$1.").replace(/\.Ranking/g,". Ranking").replace(/Budget(\d)/g,"Budget $1").replace(/(\d)HKD/g,"$1 HKD").replace(/budget\.Your/g,"budget. Your");};
 function apply(){observer.disconnect();document.documentElement.lang=language==='en'?'en':'zh-CN';document.title=language==='en'?'SmartBuy — Conversational Tech Advisor':'SmartBuy — 智能数码选购助手';
 for(const o of document.querySelectorAll('option'))if(!o.hasAttribute('value'))o.setAttribute('value',o.textContent);
-const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode()){if(n.parentElement.closest('script,style,#language-switch,.bubble.user>span:not(.speaker)'))continue;const cached=originals.get(n);const original=cached&&n.nodeValue===cached.output?cached.original:n.nodeValue;const output=translate(original);if(n.nodeValue!==output)n.nodeValue=output;originals.set(n,{original,output});}
+const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=walker.nextNode()){if(n.parentElement.closest('script,style,#language-switch,[data-literal]'))continue;const cached=originals.get(n);const original=cached&&n.nodeValue===cached.output?cached.original:n.nodeValue;const output=translate(original);if(n.nodeValue!==output)n.nodeValue=output;originals.set(n,{original,output});}
 for(const el of document.querySelectorAll('[placeholder],[aria-label],[alt]')){let cache=originals.get(el)||{};for(const key of ['placeholder','aria-label','alt'])if(el.hasAttribute(key)){const old=cache[key],value=el.getAttribute(key);const original=old&&value===old.output?old.original:value;const output=translate(original);if(value!==output)el.setAttribute(key,output);cache[key]={original,output};}originals.set(el,cache);}
 const control=document.querySelector('#language-switch');if(control)control.value=language;
 observer.observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['placeholder','aria-label','alt']});}
+dictionary.unshift(['参考价差','Reference price spread'],['展开相同项','Show matching fields'],['收起相同项','Hide matching fields']);
+dictionary.unshift(
+ ['你希望一次充电能连续听更久，还是希望充电盒少充几次电？', 'Would you rather listen longer per charge or recharge the case less often?'],
+ ['一次充电听更久', 'Listen longer per charge'],
+ ['充电盒少充几次电', 'Charge the case less often'],
+ ['鼠标只要尽量轻，还是有不能超过的重量？', 'Do you prefer a lighter mouse, or do you have a maximum weight?'],
+ ['越轻越好', 'As light as possible'],
+ ['设置重量上限', 'Set a weight limit'],
+ ['鼠标最多可以重多少克？可以选下面的数值，也可以输入自己的上限。', 'What is the maximum weight? Choose a value below or enter your own in grams.'],
+ ['不超过 80 克', 'At most 80 g'],
+ ['不超过 100 克', 'At most 100 g'],
+ ['跳过这项', 'Skip this preference'],
+ ['续航排序依据', 'Battery ranking metric'],
+ ['单次续航优先', 'Prioritise per-charge battery life'],
+ ['单次续航', 'Per-charge battery life'],
+ ['含盒总续航优先，未知值最后；', 'Total battery life with case first, unknown last; '],
+ ['含盒总续航优先', 'Prioritise battery life with case'],
+ ['含盒总续航包含充电盒补充的电量，各型号测试条件可能不同。', 'Total battery life includes recharges from the case. Test conditions may vary between models.'],
+ ['未知或不适用', 'Unknown or not applicable'],
+ ['轻量排序：', 'Weight ranking: '],
+ ['偏好澄清', 'Preference clarification'],
+ ['预算改为', 'Set budget to'],
+ ['重量上限改为', 'Set weight limit to'],
+ ['取消重量上限', 'Remove the weight limit'],
+ ['最低续航改为', 'Set minimum battery life to'],
+ ['取消最低续航', 'Remove the minimum battery requirement'],
+ ['连接方式改为不限', 'Allow either connection'],
+ ['取消必须静音', 'Allow non-silent clicks'],
+ ['佩戴方式改为不限', 'Allow any fit'],
+ ['允许入耳式', 'Allow in-ear headphones'],
+ ['取消硬性降噪条件', 'Remove the ANC requirement'],
+ ['每个方案只改一项条件。点击按钮后才会更新推荐。', 'Each option changes one requirement. Click to update the results.'],
+ ['暂时没有可直接应用的调整建议。你可以保留最在意的条件，再编辑其余条件。', 'No ready-to-apply changes found. You can keep your most important requirements and edit the others.'],
+ ['取消后，最低续航按厂商标称单次值核对。', 'After this change, minimum battery life uses the manufacturer’s rated per-charge figure.'],
+ ['编辑当前条件', 'Edit current requirements'],
+ ['需增加', 'Increase by'],
+ ['调整后匹配数量', 'Matches after change'],
+ ['示例型号', 'Example models']
+);
+dictionary.push(
+ ['香港参考价格', 'Hong Kong reference prices'],
+ ['比较所选商品的区别', 'Compare the selected products'],
+ ['为什么推荐', 'Why recommend'],
+ ['参考价格，非实时。', 'Reference prices are not live.'],
+ ['当前为浏览器规则演示，不调用真实 AI；刷新会清空对话。', 'This browser demo uses rules. Reloading clears the chat.']
+);
+dictionary.sort((a,b)=>b[0].length-a[0].length);
 let scheduled=false;const observer=new MutationObserver(()=>{if(!scheduled){scheduled=true;queueMicrotask(()=>{scheduled=false;apply()})}});
 window.smartbuyLocale={get language(){return language},translate};
 document.addEventListener('DOMContentLoaded',()=>{document.querySelector('#language-switch').onchange=e=>{language=e.target.value;try{localStorage.setItem('smartbuy-language',language)}catch{}apply()};apply()});

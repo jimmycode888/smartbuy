@@ -1,6 +1,6 @@
-import {products,parse,validate,recommend} from './core.mjs?v=638e89de0101';
-import {mice,parseMouse,validateMouse,recommendMouse} from './mouse.mjs?v=902fe2ddd4f6';
-import {adjustmentOptions,changesBetween,groundedFollowup} from './advisor.mjs?v=7791f0080885';
+import {products,parse,validate,recommend} from './core.mjs?v=f761a17a3292';
+import {mice,parseMouse,validateMouse,recommendMouse} from './mouse.mjs?v=7d6262f3b8f9';
+import {adjustmentOptions,changesBetween,groundedFollowup,pendingPreference,preferenceTurn,withPreferenceQuestion} from './advisor.mjs?v=c849b3438080';
 const sessions=new Map();const originalFetch=globalThis.fetch.bind(globalThis);
 let finishStartup;const startup=new Promise(resolve=>{finishStartup=resolve});
 globalThis.fetch=async(input,init={})=>{
@@ -19,16 +19,21 @@ globalThis.fetch=async(input,init={})=>{
  const parser=cat==='mouse'?parseMouse:parse,validator=cat==='mouse'?validateMouse:validate,recommender=cat==='mouse'?recommendMouse:recommend;
  if(body.adjustmentId){const option=adjustmentOptions(old,cat).find(p=>p.id===body.adjustmentId);if(!option)throw Error('调整方案已过期，请重新筛选。');body.patch=option.patch;}
  const text=String(body.text||'').slice(0,2000);let advice=null;
- if(!body.patch&&!Object.keys(parser(text,old)).length)advice=groundedFollowup(text,old,cat,oldRecord.resultIds,body.contextIds);
- const patch=advice?{}:body.patch?validator(body.patch):parser(text,old),state={...old,...patch};
- result={state,...recommender(state),changed:Object.keys(patch).filter(k=>old[k]!==state[k]),changes:changesBetween(old,state),advice,mode,inputMethod:'浏览器规则演示',adjustments:adjustmentOptions(state,cat)};
- sessions.set(id,{state,resultIds:result.products.map(p=>p.id)});
+ const parsed=parser(text,old);
+ const guided=body.patch?null:preferenceTurn(text,cat,oldRecord.pending,parsed);
+ if(!body.patch&&!guided&&!Object.keys(parsed).length)advice=groundedFollowup(text,old,cat,oldRecord.resultIds,body.contextIds);
+ const patch=advice?{}:body.patch?validator(body.patch):guided?guided.patch:parsed;
+ const state={...old,...patch};
+ const pending=guided?guided.pending:pendingPreference(oldRecord.pending,patch);
+ const recommendation=withPreferenceQuestion(recommender(state),pending);
+ result={state,...recommendation,changed:Object.keys(patch).filter(k=>old[k]!==state[k]),changes:changesBetween(old,state),advice,mode,inputMethod:guided?'偏好澄清':'浏览器规则演示',adjustments:recommendation.question?[]:adjustmentOptions(state,cat)};
+ sessions.set(id,{state,pending,resultIds:advice?oldRecord.resultIds:result.products.map(p=>p.id)});
  }else return new Response('{}',{status:404});
  }
  return Response.json(result);
  }catch(e){return Response.json({error:e.message||'演示请求失败，需求未更新。'},{status:400})}
 };
-for(const src of ['./i18n.js?v=5e99b3a223fd','./app.js?v=292c5c271665','./mouse-ui.js?v=f8a3024a663c','./advisor-ui.js?v=3a25085626af'])await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.append(s)});
+for(const src of ['./i18n.js?v=f353f876399d','./app.js?v=c2d39a3a152f','./mouse-ui.js?v=e7a2efee95fd','./advisor-ui.js?v=356c502a74f8'])await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.append(s)});
 finishStartup();
 document.body.inert=false;
 document.querySelector('#about-mode').textContent='当前为浏览器规则演示，不调用真实 AI；刷新会清空对话。';

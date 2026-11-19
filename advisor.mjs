@@ -1,15 +1,129 @@
 const createHash=()=>({update(s){this.s=s;return this},digest(){let h=14695981039346656037n;for(const c of this.s){h=BigInt.asUintN(64,(h^BigInt(c.codePointAt(0)))*1099511628211n)}return h.toString(16).padStart(16,'0')}});
-import {products,recommend,violations} from './core.mjs?v=638e89de0101';
-import {mice,recommendMouse,mouseViolations} from './mouse.mjs?v=902fe2ddd4f6';
+import {products,recommend,violations,batteryFor} from './core.mjs?v=f761a17a3292';
+import {mice,recommendMouse,mouseViolations} from './mouse.mjs?v=7d6262f3b8f9';
 export const catalogFor=c=>c==='mouse'?mice:products;
 export const recommenderFor=c=>c==='mouse'?recommendMouse:recommend;
 export const violationsFor=c=>c==='mouse'?mouseViolations:violations;
+
+const skipPreference = '跳过这项';
+const preferenceQuestions = {
+  battery: {
+    question: '你希望一次充电能连续听更久，还是希望充电盒少充几次电？',
+    options: ['一次充电听更久', '充电盒少充几次电', skipPreference],
+  },
+  light: {
+    question: '鼠标只要尽量轻，还是有不能超过的重量？',
+    options: ['越轻越好', '设置重量上限', skipPreference],
+  },
+  weight: {
+    question: '鼠标最多可以重多少克？可以选下面的数值，也可以输入自己的上限。',
+    options: ['不超过 80 克', '不超过 100 克', skipPreference],
+  },
+};
+
+export function preferenceTurn(text, category, pending, parsed) {
+  const intent = followupIntent(text);
+  if (['guard', 'why', 'compare'].includes(intent)) return null;
+  const answer = text.trim().replace(/[。.!！]+$/, '').toLowerCase();
+  if (pending && /^(跳过这项|跳过|暂不设置|skip this preference|skip)$/.test(answer)) {
+    return { patch: {}, pending: null };
+  }
+  if (pending === 'battery') {
+    if (/^(一次充电听更久|单次|单次续航|连续听更久|listen longer per charge|per charge|single charge)$/.test(answer)) {
+      return { patch: { preferBattery: true, batteryFocus: 'single' }, pending: null };
+    }
+    if (/^(充电盒少充几次电|充电盒|含盒|含盒续航|charge the case less often|charging case|with (the )?case)$/.test(answer)) {
+      return { patch: { preferBattery: true, batteryFocus: 'case' }, pending: null };
+    }
+  }
+  if (pending === 'light') {
+    if (/^(越轻越好|轻便优先|as light as possible|lighter is better)$/.test(answer)) {
+      return { patch: { preferLight: true }, pending: null };
+    }
+    if (/^(设置重量上限|重量上限|set a weight limit|weight limit)$/.test(answer)) {
+      return { patch: {}, pending: 'weight' };
+    }
+  }
+  if (pending === 'weight') {
+    const amount = answer.match(/^(?:at most\s+)?(\d+(?:\.\d+)?)\s*(?:克|g|grams?)?$/);
+    if (amount && Number(amount[1]) > 0 && Number(amount[1]) <= 100000) {
+      return { patch: { maxWeight: Number(amount[1]) }, pending: null };
+    }
+    if ('maxWeight' in parsed) return { patch: parsed, pending: null };
+  }
+  if (/这款|那款|第[一二三123]款|this model|that model|不(?:希望|想要|在意)/i.test(text)) return null;
+  if (category === 'headphone' && !('minBattery' in parsed)
+      && !/续航越长|不再偏好|不在意续航|prefer (?:longer|long) battery/i.test(text)
+      && /更重视续航|续航(?:想要|要|得)?(?:稍微|再)?(?:好|长)(?:一些|一点|点)?|(?:想要|希望|需要|要个).*长续航|better battery life|last (?:a bit )?longer/i.test(text)) {
+    const { preferBattery, ...patch } = parsed;
+    return { patch, pending: 'battery' };
+  }
+  if (category === 'mouse' && !('maxWeight' in parsed) && !('preferLight' in parsed)
+      && /更重视轻便|不要太重|(?:轻便|更轻|轻)(?:一些|一点|点)|想要(?:个)?轻便|希望(?:更)?轻便|(?:a bit|slightly) lighter|something lighter|more lightweight/i.test(text)) {
+    return { patch: parsed, pending: 'light' };
+  }
+  return null;
+}
+
+export function pendingPreference(previous, patch) {
+  const fields = previous === 'battery' ? ['preferBattery', 'batteryFocus', 'minBattery'] : ['preferLight', 'maxWeight'];
+  return fields.some(field => field in patch) ? null : previous;
+}
+
+export function withPreferenceQuestion(result, pending) {
+  if (!pending || result.question) return result;
+  const { question, options } = preferenceQuestions[pending];
+  return { ...result, question, message: question, followups: options, products: [], explanations: {} };
+}
+
 export function changesBetween(old,next){return Object.keys(next).filter(k=>old[k]!==next[k]).map(field=>({field,before:old[field]??null,after:next[field]}));}
-export function adjustmentOptions(state,category){const catalog=catalogFor(category),check=violationsFor(category),result=recommenderFor(category)(state);if(result.question||result.matchCount)return [];
- const attempts=[];
- const otherwise=catalog.filter(p=>check(p,{...state,budget:100000}).length===0);if(otherwise.length){const min=Math.min(...otherwise.map(p=>p.price));if(min>state.budget)attempts.push(['budget',{budget:min}]);}
- const options=category==='mouse'?[['connection',{connection:'any'}],['silent',{silent:null}],['maxWeight',{maxWeight:0}]]:[['type',{type:'不限'}],['excludeInEar',{excludeInEar:false}],['anc',{anc:null}],['minBattery',{minBattery:0}]];
- const proposals=[];for(const [field,patch]of [...attempts,...options]){if(Object.entries(patch).every(([k,v])=>state[k]===v))continue;const matches=catalog.filter(p=>!check(p,{...state,...patch}).length);if(matches.length)proposals.push({id:'adjust-'+field+'-'+createHash('sha256').update(JSON.stringify({state,patch})).digest('hex').slice(0,12),field,patch,count:matches.length,productIds:matches.slice(0,3).map(p=>p.id)});}return proposals.slice(0,3);
+export function adjustmentOptions(state, category) {
+  const recommendProducts = recommenderFor(category);
+  const result = recommendProducts(state);
+  if (result.question || result.matchCount) return [];
+
+  const catalog = catalogFor(category);
+  const check = violationsFor(category);
+  const values = (field, relaxed, metric) => catalog
+    .filter(product => !check(product, { ...state, [field]: relaxed }).length)
+    .map(metric)
+    .filter(Number.isFinite);
+  const prices = values('budget', 100000, product => product.price);
+  const attempts = prices.length ? [{ budget: Math.min(...prices) }] : [];
+
+  if (category === 'mouse') {
+    if (state.maxWeight > 0) {
+      const weights = values('maxWeight', 0, product => product.weight);
+      attempts.push({ maxWeight: weights.length ? Math.min(...weights) : 0 });
+    }
+    if (['bluetooth', 'receiver'].includes(state.connection)) attempts.push({ connection: 'any' });
+    if (state.silent === true) attempts.push({ silent: null });
+  } else {
+    if (state.minBattery > 0) {
+      const hours = values('minBattery', 0, product => batteryFor(product, state));
+      attempts.push({ minBattery: hours.length ? Math.max(...hours) : 0 });
+    }
+    if (state.type && state.type !== '不限') attempts.push({ type: '不限' });
+    if (state.excludeInEar) attempts.push({ excludeInEar: false });
+    if (state.anc != null) attempts.push({ anc: null });
+  }
+
+  const proposals = [];
+  for (const patch of attempts) {
+    const field = Object.keys(patch)[0];
+    const preview = recommendProducts({ ...state, ...patch });
+    if (patch[field] === state[field] || !preview.products.length) continue;
+    const hash = createHash('sha256').update(JSON.stringify({ state, patch })).digest('hex').slice(0, 12);
+    proposals.push({
+      id: 'adjust-' + field + '-' + hash,
+      field,
+      patch,
+      count: preview.matchCount,
+      productIds: preview.products.map(product => product.id),
+      productNames: preview.products.map(product => product.name),
+    });
+  }
+  return proposals.slice(0, 3);
 }
 export function followupIntent(text){if(/编造|伪造|忽略规则|ignore.*rules/i.test(text))return 'guard';if(/便宜一点|更便宜|省钱|cheaper|less expensive/i.test(text))return 'cheaper';if(/为什么|推荐理由|why.*recommend|why this|why these/i.test(text))return 'why';if(/比较|对比|差在哪|区别|哪.*适合|compare|difference|which.*better/i.test(text))return 'compare';if(/续航|重量|多重|降噪|延迟|舒适|来源|防水|battery|weight|latency|comfort|source|waterproof|ANC/i.test(text)&&/[?？]|多少|如何|怎么样|是否|does|what|how|is |are /i.test(text))return 'specs';return null;}
 export function groundedFollowup(text,state,category,lastIds=[],requestedIds){const intent=followupIntent(text);if(!intent)return null;const catalog=catalogFor(category),result=recommenderFor(category)(state),check=violationsFor(category);const explicit=catalog.filter(p=>text.toLowerCase().includes(p.name.toLowerCase())||text.toLowerCase().includes(p.id.toLowerCase())||text.toLowerCase().includes(p.id.split('-').at(-1).toLowerCase()));let chosen=explicit.length?explicit:lastIds.map(id=>catalog.find(p=>p.id===id)).filter(Boolean);if(requestedIds?.length){if(requestedIds.some(id=>!catalog.some(p=>p.id===id)))throw Error('Invalid product ID');if(!explicit.length)chosen=requestedIds.map(id=>catalog.find(p=>p.id===id));}chosen=chosen.slice(0,3);const ordinal=text.match(/第([一二三123])款/);if(ordinal){const n={'一':0,'二':1,'三':2,'1':0,'2':1,'3':2}[ordinal[1]];chosen=chosen[n]?[chosen[n]]:[];}
