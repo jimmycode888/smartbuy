@@ -33,7 +33,7 @@ globalThis.fetch=async(input,init={})=>{
  return Response.json(result);
  }catch(e){return Response.json({error:e.message||'演示请求失败，需求未更新。'},{status:400})}
 };
-for(const src of ['./i18n.js?v=f353f876399d','./app.js?v=c2d39a3a152f','./mouse-ui.js?v=e7a2efee95fd','./advisor-ui.js?v=356c502a74f8'])await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.append(s)});
+for(const src of ['./i18n.js?v=f353f876399d','./app.js?v=6852151dfb38','./mouse-ui.js?v=e7a2efee95fd','./advisor-ui.js?v=356c502a74f8'])await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.append(s)});
 finishStartup();
 document.body.inert=false;
 document.querySelector('#about-mode').textContent='当前为浏览器规则演示，不调用真实 AI；刷新会清空对话。';
